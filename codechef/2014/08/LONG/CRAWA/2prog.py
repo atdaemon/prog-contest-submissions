@@ -16,7 +16,7 @@ for _ in xrange(T) :
 		[f(X,Y,lambda y: y<=0 and y%2==0, abs(Y)/2, lambda x : x*(-2), lambda x : 1+(2*x)),
 		f(X,Y,lambda y: y>0 and y%2==0, (Y/2)-1,lambda x : (-2)*(x+1), lambda x: 1+(2*x)),
 		f(Y,X,lambda x:x>0 and x%2==1, X/2, lambda y: (-2)*y, lambda y:2*(y+1)),
-		f(Y,X,lambda x: x<0 and x%2==0, (-1)*(X/2), lambda y: (-2)*(y+1), lambda y: 2*(y+1))
+		f(Y,X,lambda x: x<0 and x%2==0, (-1)*(X/2), lambda y: (-2)*(y), lambda y: 2*(y))
 		]
 	)
 	print "YES" if ans else "NO"
