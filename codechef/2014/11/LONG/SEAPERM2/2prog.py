@@ -3,8 +3,6 @@ http://www.codechef.com/NOV14/problems/SEAPERM2
 """
 from itertools import permutations as perm
 from collections import Counter
-DATA = 0
-MISSING = 1
 S1 = []
 D = {}
 def getPossList(arr,index) :
@@ -49,20 +47,19 @@ for _ in xrange(T) :
 	S1 = set(xrange(1,N+1))
 #	print "S1 = " , S1
 	for _i_ in xrange(N) :
-		mat[_i_] = [map(int,raw_input().split()),0]
-		mat[_i_][MISSING] = list(S1.difference(set(mat[_i_][0])))[0]
+		mat[_i_] = map(int,raw_input().split())
 	print "\n".join(map(str,mat))
 	ans = []
-	if N >= 6 :
-		counts = Counter([mat[i][0][0] for i in xrange(N)])
+	if N > 6 :
+		counts = Counter([mat[i][0] for i in xrange(N)])
 		print "Counts = " , counts
 		firstPlaceNumber = findFirst(N,counts)
 		continue	#TODO
 	if len(ans) > 0 : continue
 	for arr in perm(mat) :
-		ans = getPossList(arr[0][0],1)
+		ans = getPossList(arr[0],1)
 		for i in xrange(1,N) :
-			ans = ans.intersection(getPossList(arr[i][0],i+1))
+			ans = ans.intersection(getPossList(arr[i],i+1))
 #			print ans
 			if len(ans) == 0 :
 				break
