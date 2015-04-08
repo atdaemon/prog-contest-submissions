@@ -43,12 +43,15 @@ def next_prime() :
 #gen_primes_upto_square_root_of(10**9)
 #print primes
 
+
+def prime_factors(N) :
+	for p in primes :
+		if N%p == 0 :
+			factors.append(p)
+	return factors
+
 N = int(raw_input("Enter a positive number = ") )
 gen_primes_upto_square_root_of(N)
 factors = []
-
-for p in primes :
-	if N%p == 0 :
-		factors.append(p)
-print factors
+print prime_factors(N)
 
